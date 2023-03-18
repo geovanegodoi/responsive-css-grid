@@ -1,99 +1,99 @@
 {
-  "name": "responsive-css-grid",
-  "$schema": "node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "./src",
-  "projectType": "application",
-  "targets": {
-    "build": {
-      "executor": "@nrwl/vite:build",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
-      "options": {
-        "outputPath": "dist/responsive-css-grid"
-      },
-      "configurations": {
-        "development": {
-          "mode": "development"
+    "name": "responsive-css-grid",
+    "$schema": "node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "./src",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/vite:build",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "outputPath": "dist"
+            },
+            "configurations": {
+                "development": {
+                    "mode": "development"
+                },
+                "production": {
+                    "mode": "production"
+                }
+            }
         },
-        "production": {
-          "mode": "production"
-        }
-      }
-    },
-    "serve": {
-      "executor": "@nrwl/vite:dev-server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "responsive-css-grid:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "responsive-css-grid:build:development",
-          "hmr": true
+        "serve": {
+            "executor": "@nrwl/vite:dev-server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "responsive-css-grid:build"
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "responsive-css-grid:build:development",
+                    "hmr": true
+                },
+                "production": {
+                    "buildTarget": "responsive-css-grid:build:production",
+                    "hmr": false
+                }
+            }
         },
-        "production": {
-          "buildTarget": "responsive-css-grid:build:production",
-          "hmr": false
-        }
-      }
-    },
-    "preview": {
-      "executor": "@nrwl/vite:preview-server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "responsive-css-grid:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "responsive-css-grid:build:development"
+        "preview": {
+            "executor": "@nrwl/vite:preview-server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "responsive-css-grid:build"
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "responsive-css-grid:build:development"
+                },
+                "production": {
+                    "buildTarget": "responsive-css-grid:build:production"
+                }
+            }
         },
-        "production": {
-          "buildTarget": "responsive-css-grid:build:production"
+        "test": {
+            "executor": "@nrwl/vite:test",
+            "outputs": ["coverage/responsive-css-grid"],
+            "options": {
+                "passWithNoTests": true,
+                "reportsDirectory": "coverage/responsive-css-grid"
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["./src/**/*.{ts,tsx,js,jsx}"]
+            }
+        },
+        "storybook": {
+            "executor": "@nrwl/storybook:storybook",
+            "options": {
+                "port": 4400,
+                "configDir": "./.storybook",
+                "uiFramework": "@storybook/react"
+            },
+            "configurations": {
+                "ci": {
+                    "quiet": true
+                }
+            }
+        },
+        "build-storybook": {
+            "executor": "@nrwl/storybook:build",
+            "outputs": ["{options.outputDir}"],
+            "options": {
+                "outputDir": "dist/storybook/responsive-css-grid",
+                "configDir": "./.storybook",
+                "uiFramework": "@storybook/react"
+            },
+            "configurations": {
+                "ci": {
+                    "quiet": true
+                }
+            }
         }
-      }
     },
-    "test": {
-      "executor": "@nrwl/vite:test",
-      "outputs": ["coverage/responsive-css-grid"],
-      "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "coverage/responsive-css-grid"
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["./src/**/*.{ts,tsx,js,jsx}"]
-      }
-    },
-    "storybook": {
-      "executor": "@nrwl/storybook:storybook",
-      "options": {
-        "port": 4400,
-        "configDir": "./.storybook",
-        "uiFramework": "@storybook/react"
-      },
-      "configurations": {
-        "ci": {
-          "quiet": true
-        }
-      }
-    },
-    "build-storybook": {
-      "executor": "@nrwl/storybook:build",
-      "outputs": ["{options.outputDir}"],
-      "options": {
-        "outputDir": "dist/storybook/responsive-css-grid",
-        "configDir": "./.storybook",
-        "uiFramework": "@storybook/react"
-      },
-      "configurations": {
-        "ci": {
-          "quiet": true
-        }
-      }
-    }
-  },
-  "tags": []
+    "tags": []
 }
