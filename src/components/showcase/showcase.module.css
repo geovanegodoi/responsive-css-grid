@@ -1,0 +1,21 @@
+.showcase {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 3fr 0.8fr;
+}
+
+.showcase > div:nth-child(1) {
+  grid-row: span 2;
+}
+
+@media (max-width: 600px) {
+  .showcase {
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid var(--primary);
+  }
+
+  .showcase > div:nth-child(1) {
+    grid-column: span 2;
+  }
+}

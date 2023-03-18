@@ -1,0 +1,24 @@
+.hero {
+  background: url(https://image.ibb.co/kYJK8x/showcase.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  gap: 1rem;
+}
+
+.hero > h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+  color: var(--light);
+}
+
+.hero > p {
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: var(--light);
+}

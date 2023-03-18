@@ -1,0 +1,22 @@
+.membership {
+  background: var(--primary);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  text-align: center;
+}
+
+.membership > h3 {
+  text-transform: capitalize;
+}
+
+.membership > p {
+  font-size: 2.5rem;
+}
+
+.membership > p > span {
+  font-size: 1.5rem;
+}
